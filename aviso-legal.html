@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aviso Legal | Reformas Pisos Barcelona</title>
+  <link rel="stylesheet" href="style2.css">
+</head>
+
+<body>
+  <div class="wrapper">
+    <main>
+      <header>
+        <div class="container">
+          <a href="index.html" class="logo-link" aria-label="Ir a Inicio">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 84" role="img" aria-labelledby="title desc"
+              preserveAspectRatio="xMidYMid meet" class="logo-svg" style="margin-right: 0px;">
+              <title id="title">Reformas PRAT</title>
+              <desc id="desc">Logotipo con fondo negro y texto blanco</desc>
+
+              <rect x="0" y="0" width="500" height="84" fill="#000" rx="6" ry="6" />
+              <text x="50%" y="55%" fill="#ffffff" font-family="Verdana, Arial, sans-serif" font-size="36"
+                font-weight="700" text-anchor="middle" dominant-baseline="middle">
+                Reformas PRAT
+              </text>
+            </svg>
+          </a>
+
+          <!-- Botón hamburguesa para móvil -->
+          <button class="menu-toggle" id="menu-toggle" aria-label="Abrir menú">
+            ☰
+          </button>
+
+          <nav>
+            <ul id="menu">
+              <li><a href="index.html">Inicio</a></li>
+              <li><a href="servicios.html">Servicios</a></li>
+              <li><a href="galeria.html">Galería</a></li>
+              <li><a href="contacto.html">Contacto</a></li>
+            </ul>
+          </nav>
+        </div>
+      </header>
+
+      <!-- Menú responsive -->
+      <style>
+        @media (max-width: 768px) {
+          #menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            background: #2C3E50;
+            flex-direction: column;
+            gap: 0;
+            padding: 0.75rem 0;
+            z-index: 150;
+          }
+
+          #menu.open {
+            display: flex;
+          }
+
+          .menu-toggle {
+            position: relative;
+            z-index: 200;
+          }
+
+          #menu li {
+            margin: 0.25rem 1rem;
+          }
+
+          #menu a {
+            display: block;
+            padding: 0.5rem 0;
+          }
+        }
+      </style>
+
+      <main id="aviso-legal" class="section">
+        <h2>Aviso Legal</h2>
+
+        <section>
+          <h3>1. Información General</h3>
+          <p>
+            En cumplimiento con el deber de información establecido en la Ley 34/2002, de Servicios de la Sociedad de la Información y de Comercio Electrónico (LSSI-CE), se facilita la siguiente información:
+          </p>
+          <ul>
+            <li><strong>Responsable:</strong> Reformas Pisos Barcelona</li>
+            <li><strong>Domicilio:</strong> Calle Mayor 123, Barcelona</li>
+            <li><strong>Correo electrónico:</strong> info@reformaspisosbarcelona.com</li>
+            <li><strong>Teléfono:</strong> 600 000 000</li>
+          </ul>
+        </section>
+
+        <section>
+          <h3>2. Condiciones de uso</h3>
+          <p>
+            El acceso y uso del sitio web <strong>www.reformaspisosbarcelona.com</strong> atribuye la condición de usuario e implica la aceptación plena de todas las condiciones incluidas en este aviso legal.
+          </p>
+          <p>
+            El usuario se compromete a hacer un uso adecuado de los contenidos y servicios, y a no emplearlos para:
+          </p>
+          <ul>
+            <li>Realizar actividades ilícitas o contrarias a la buena fe y al orden público.</li>
+            <li>Difundir contenidos o propaganda de carácter racista, xenófobo, pornográfico o de apología del terrorismo.</li>
+            <li>Provocar daños en los sistemas físicos y lógicos de Reformas Pisos Barcelona o de terceros.</li>
+          </ul>
+        </section>
+
+        <section>
+          <h3>3. Propiedad intelectual e industrial</h3>
+          <p>
+            Todos los contenidos de este sitio web (textos, imágenes, logotipos, diseño, código fuente, etc.) son propiedad de Reformas Pisos Barcelona o de terceros que han autorizado su uso.
+          </p>
+          <p>
+            Queda prohibida la reproducción, distribución o modificación sin autorización expresa del titular.
+          </p>
+        </section>
+
+        <section>
+          <h3>4. Responsabilidad</h3>
+          <p>
+            Reformas Pisos Barcelona no se hace responsable de los daños derivados del mal uso de la web ni de la información contenida en sitios de terceros a los que se pueda acceder mediante enlaces.
+          </p>
+        </section>
+
+        <section>
+          <h3>5. Legislación aplicable</h3>
+          <p>
+            Las presentes condiciones se rigen por la legislación española. Cualquier controversia que pueda surgir se someterá a los juzgados y tribunales de Barcelona.
+          </p>
+        </section>
+      </main>
+    </main>
+
+    <footer>
+      <div class="container footer-inner" style="padding-bottom: 0px; padding-top: 0px;">
+        <p>© 2025 Reformas Pisos Barcelona - Todos los derechos reservados.</p>
+        <ul class="footer-legal">
+            <li><a href="aviso-legal.html" rel="noopener">Aviso legal</a> -  <a href="politica-de-privacidad.html" rel="noopener">Política de privacidad</a></li>
+        </ul>
+      </div>
+    </footer>
+  </div>
+
+  <style>
+    html,
+    body {
+      height: 100%;
+      margin: 0;
+    }
+
+    .wrapper {
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    main {
+      flex: 1;
+    }
+
+    /* Ajustes del contenido legal */
+    #aviso-legal {
+      text-align: left;
+      margin: 0 auto;
+      max-width: 900px;
+      line-height: 1.6;
+      padding: 2rem 1rem;
+    }
+
+    #aviso-legal ul {
+      padding-left: 2.5rem;
+      list-style-position: outside;
+    }
+
+    /* Footer */
+    .footer-inner {
+      display: flex;
+      flex-direction: column;
+      gap: 0rem;
+      align-items: center;
+      padding: 1.25rem 0;
+    }
+
+    .footer-legal {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      align-items: center;
+    }
+
+    .footer-legal a {
+      color: #ECF0F1;
+      text-decoration: underline;
+      font-size: 0.95rem;
+    }
+
+    @media (min-width: 700px) {
+      .footer-inner {
+        flex-direction: column;
+        justify-content: center;
+      }
+    }
+  </style>
+    <style>
+    /* ...existing styles... */
+
+    /* Ajustes mobile: menú como overlay fijo para que no desplace contenido */
+    @media (max-width: 768px) {
+        header, header .container {
+        overflow: visible; /* permitir overlay sin recorte */
+        }
+
+        #menu {
+        display: none;                 /* oculto por defecto */
+        position: fixed;               /* fuera del flujo: no desplaza contenido */
+        top: var(--header-height, 64px); /* set por JS para coincidir con header */
+        left: 0;
+        right: 0;
+        background: #2C3E50;
+        z-index: 9999;
+        flex-direction: column;
+        gap: 0;
+        padding: 0.75rem 0;
+        max-height: calc(100vh - var(--header-height, 64px));
+        overflow: auto;                /* scroll si es más alto que viewport */
+        }
+
+        #menu.open {
+        display: flex;
+        }
+
+        .menu-toggle {
+        position: relative;
+        z-index: 10001;                /* botón siempre encima del menú */
+        }
+
+        #menu li {
+        margin: 0.25rem 1rem;
+        }
+
+        #menu a {
+        display: block;
+        padding: 0.5rem 0;
+        }
+
+        /* opcional: cuando el menú esté abierto, evita scroll del body */
+        body.menu-open {
+        overflow: hidden;
+        touch-action: none;
+        }
+    }
+    </style>
+  <script src="script.js"></script>
+</body>
+
+</html>

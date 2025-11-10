@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reformas Pisos Barcelona | Inicio</title>
+  <link rel="stylesheet" href="style2.css">
+</head>
+
+<body>
+  <div class="wrapper">
+    <main>
+      <header>
+        <div class="container">
+          <a href="index.html" class="logo-link" aria-label="Ir a Inicio">
+            <!-- SVG responsive: usa viewBox y clase CSS -->
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 84" role="img" aria-labelledby="title desc"
+                 preserveAspectRatio="xMidYMid meet" class="logo-svg" style="margin-right: 0px;">
+              <title id="title">Reformas PRAT</title>
+              <desc id="desc">Logotipo con fondo negro y texto blanco</desc>
+
+              <rect x="0" y="0" width="500" height="84" fill="#000" rx="6" ry="6" />
+              <text x="50%" y="55%" fill="#ffffff" font-family="Verdana, Arial, sans-serif"
+                    font-size="36" font-weight="700" text-anchor="middle" dominant-baseline="middle">
+                Reformas PRAT
+              </text>
+            </svg>
+          </a>
+
+          <!-- Botón hamburguesa para móvil -->
+          <button class="menu-toggle" id="menu-toggle" aria-label="Abrir menú">☰</button>
+
+          <nav>
+            <ul id="menu">
+              <li><a href="index.html" class="active">Inicio</a></li>
+              <li><a href="servicios.html">Servicios</a></li>
+              <li><a href="galeria.html">Galería</a></li>
+              <li><a href="contacto.html">Contacto</a></li>
+            </ul>
+          </nav>
+        </div>
+      </header>
+      <style>
+        /* Ajustes mobile para que el menú desplegable no cubra el botón */
+        @media (max-width: 768px) {
+          #menu {
+            display: none;               /* oculto por defecto */
+            top: 100%;                   /* justo debajo del header */
+            left: 0;
+            right: 0;
+            background: #2C3E50;
+            flex-direction: column;
+            gap: 0;
+            padding: 0.75rem 0;
+            z-index: 150;                /* por debajo del botón */
+          }
+
+          #menu.open {
+            display: flex;
+          }
+
+          .menu-toggle {
+            position: relative;
+            z-index: 200;                /* botón siempre encima del menú */
+          }
+
+          #menu li {
+            margin: 0.25rem 1rem;
+          }
+
+          #menu a {
+            display: block;
+            padding: 0.5rem 0;
+          }
+
+          /* Ajustes mobile: menú como overlay fijo para que no desplace contenido */
+          @media (max-width: 768px) {
+            header, header .container {
+              overflow: visible; /* permitir overlay sin recorte */
+            }
+
+            #menu {
+              display: none;                 /* oculto por defecto */
+              position: fixed;               /* fuera del flujo: no desplaza contenido */
+              top: var(--header-height, 64px); /* set por JS para coincidir con header */
+              left: 0;
+              right: 0;
+              background: #2C3E50;
+              z-index: 9999;
+              flex-direction: column;
+              gap: 0;
+              padding: 0.75rem 0;
+              max-height: calc(100vh - var(--header-height, 64px));
+              overflow: auto;                /* scroll si es más alto que viewport */
+            }
+
+            #menu.open {
+              display: flex;
+            }
+
+            .menu-toggle {
+              position: relative;
+              z-index: 10001;                /* botón siempre encima del menú */
+            }
+
+            #menu li {
+              margin: 0.25rem 1rem;
+            }
+
+            #menu a {
+              display: block;
+              padding: 0.5rem 0;
+            }
+
+            /* opcional: cuando el menú esté abierto, evita scroll del body */
+            body.menu-open {
+              overflow: hidden;
+              touch-action: none;
+            }
+          }
+      </style>
+      <section id="inicio" class="hero">
+        <div class="hero-content">
+          <h2>Reforma tu hogar con calidad y confianza</h2>
+          <p>Especialistas en reformas integrales y parciales en Barcelona.</p>
+          <a href="#contacto" class="btn">Pide presupuesto</a>
+        </div>
+      </section>
+
+      <section id="servicios" class="section">
+        <h2>Nuestros Servicios</h2>
+        <div class="services">
+          <div class="service-card">
+            <h3>Reformas Integrales</h3>
+            <p>Transformamos tu piso de principio a fin, adaptado a tus gustos y necesidades.</p>
+          </div>
+          <div class="service-card">
+            <h3>Cocinas y Baños</h3>
+            <p>Diseños modernos y funcionales para aprovechar cada rincón de tu hogar.</p>
+          </div>
+          <div class="service-card">
+            <h3>Pintura y Suelos</h3>
+            <p>Acabados profesionales, materiales de primera y atención al detalle.</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="galeria" class="section gallery">
+        <h2>Galería de Trabajos</h2>
+        <div class="gallery-grid">
+          <img src="imagesgaleria/lisa-anna-rc0IlR9Mzq4-unsplash.jpg" alt="Reforma de cocina">
+          <img src="imagesgaleria/chastity-cortijo-FJLoqqIsSHc-unsplash.jpg" alt="Reforma de baño">
+          <!-- <img src="" alt="Reforma integral"> -->
+          <img src="imagesgaleria/callum-hill-f1UwaROA2UQ-unsplash.jpg" alt="Pintura interior">
+          <img src="imagesgaleria/possessed-photography-NsC6wFTpowQ-unsplash.jpg" alt="Suelos laminados">
+          <!-- <img src="" alt="Reforma de salón"> -->
+        </div>
+      </section>
+      <!-- Ventana emergente (lightbox) -->
+      <div class="lightbox" id="lightbox">
+        <img src="" alt="Imagen ampliada" id="lightbox-img">
+      </div>
+      <script>
+        const images = document.querySelectorAll('.gallery-grid img');
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightbox-img');
+
+        images.forEach(img => {
+          img.addEventListener('click', () => {
+            lightbox.style.display = 'flex';
+            lightboxImg.src = img.src;
+          });
+        });
+
+        // Cerrar al hacer clic fuera o en la imagen
+        lightbox.addEventListener('click', () => {
+          lightbox.style.display = 'none';
+        });
+      </script>
+      <style>
+        .gallery-grid {
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+          gap: 20px;
+          justify-items: center;
+          align-items: center;
+        }
+
+        .gallery-grid img {
+          width: 100%;
+          aspect-ratio: 4 / 3;
+          object-fit: cover;
+          border-radius: 10px;
+          cursor: pointer;
+          transition: transform 0.3s ease;
+        }
+
+        .gallery-grid img:hover {
+          transform: scale(1.05);
+        }
+
+        /* Lightbox */
+        .lightbox {
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background: rgba(0, 0, 0, 0.8);
+          display: none;
+          /* oculto por defecto */
+          justify-content: center;
+          align-items: center;
+          z-index: 1000;
+        }
+
+        .lightbox img {
+          max-width: 90%;
+          max-height: 90%;
+          border-radius: 10px;
+          box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+          animation: fadeIn 0.3s ease;
+        }
+
+        @keyframes fadeIn {
+          from {
+            opacity: 0;
+            transform: scale(0.95);
+          }
+
+          to {
+            opacity: 1;
+            transform: scale(1);
+          }
+        }
+      </style>
+
+      <main id="contacto" class="section contact">
+        <div class="section contact" style="margin-bottom: 0px;margin-top: 0px;">
+          <h2>Contacto</h2>
+          <p>Solicita tu presupuesto sin compromiso:</p>
+
+          <!-- FORMULARIO: reemplaza TU_FORM_ENDPOINT por la URL real de Formspree -->
+          <form id="contact-form" action="https://formspree.io/f/xyzlgyre" method="POST" style="margin-bottom: 0px;" novalidate>
+            <label for="nombre">
+              Nombre
+              <input type="text" name="nombre" id="nombre" required />
+            </label>
+
+            <label for="email">
+              Correo electrónico
+              <input type="email" name="email" id="email" required />
+            </label>
+
+            <label for="mensaje">
+              Mensaje
+              <textarea name="mensaje" id="mensaje" rows="5" required></textarea>
+            </label>
+            <!-- ✅ Casilla RGPD -->
+            <label for="privacidad" class="checkbox-label">
+              <input type="checkbox" name="privacidad" id="privacidad" style="width: 13px;" required/>
+              He leído y acepto la
+              <a href="politica-de-privacidad.html" rel="noopener">Política de privacidad</a>.
+            </label>
+            <!-- botón TIPO button para controlar envío solo al pulsar con JS -->
+            <button type="button" id="send-btn" class="btn">Enviar</button>
+
+            <p id="status" aria-live="polite" style="margin-top:0.8rem"></p>
+          </form>
+        </div>
+        <ul class="contact-info">
+          <li><strong>Teléfono:</strong> <span>+34 600 123 456</span></li>
+          <li><strong>Email:</strong> <span>info@reformasPrat.com</span></li>
+          <li><strong>Dirección:</strong> <span>Plaça Catalunya, 08820 El Prat de Llobregat</span></li>
+        </ul>
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d383.32227217978465!2d2.0927!3d41.322976!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12a49ec26fc00001%3A0xe6ce180a8234f62c!2sPlaza%20Catalunya!5e1!3m2!1ses!2ses!4v1762636311149!5m2!1ses!2ses"
+          width="400" height="400" style="border:0;" allowfullscreen="" loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </main>
+        <style>
+          /* ...existing styles... */
+
+          /* Layout horizontal para la sección de contacto */
+          #contacto {
+            display: flex;
+            /* gap: 0.5rem; */
+            align-items: flex-start;
+            flex-wrap: wrap; /* permite que baje en pantallas estrechas */
+          }
+
+          /* Formulario (primer bloque dentro de #contacto) */
+          #contacto > .section.contact {
+            flex: 1 1 480px;   /* crecer, reducir, tamaño base */
+            min-width: 260px;
+          }
+
+          /* Información de contacto como lista */
+          #contacto > .contact-info {
+            flex: 0 0 240px;       /* ancho fijo preferente */
+            min-width: 180px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center; /* centra verticalmente respecto al resto */
+            gap: 0.5rem;
+            padding: 0 0.5rem;
+            text-align: left;
+            list-style: none;      /* quitar bullets */
+            margin: 0;
+          }
+
+          /* cada elemento de la lista */
+          #contacto > .contact-info li {
+            margin: 0.25rem 0;
+            line-height: 1.3;
+          }
+
+          /* destacar etiqueta y valor */
+          #contacto > .contact-info li strong {
+            display: block;
+            font-weight: 700;
+            margin-bottom: 0.15rem;
+            color: #222;
+          }
+
+          #contacto > .contact-info li span {
+            display: block;
+            color: #444;
+            font-weight: 400;
+          }
+
+          /* Mapa (iframe) */
+          #contacto > iframe {
+            flex: 1 1 360px;
+            min-width: 280px;
+            height: 320px;
+            border: 0;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+          }
+
+          /* Responsive: en pantallas pequeñas apilar verticalmente */
+          @media (max-width: 768px) {
+            #contacto {
+              flex-direction: column;
+            }
+            #contacto > iframe {
+              width: 100%;
+              height: 260px;
+            }
+          }
+        </style>
+
+    </main>
+    <footer>
+      <div class="container footer-inner" style="padding-bottom: 0px;padding-top: 0px;">
+        <p>© 2025 Reformas Pisos Barcelona - Todos los derechos reservados.</p>
+
+        <!-- enlaces legales en el footer -->
+        <ul class="footer-legal">
+          <li><a href="aviso-legal.html" rel="noopener">Aviso legal</a> -  <a href="politica-de-privacidad.html" rel="noopener">Política de privacidad</a></li>
+        </ul>
+      </div>
+    </footer>
+  </div>
+
+
+  <style>
+    html,
+    body {
+      height: 100%;
+      margin: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    .wrapper {
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+      /* ocupa toda la altura del viewport */
+    }
+
+    main {
+      flex: 1;
+      /* empuja el footer hacia abajo */
+    }
+
+    footer {
+      background-color: #222;
+      color: white;
+      text-align: center;
+      padding: 10px;
+    }
+
+    /* margen superior para el mapa: ajusta 1rem por el valor que prefieras */
+    .map-responsive {
+      margin-top: 3rem;
+      width: 100px;
+      height: 100px;
+    }
+        /* Footer: enlaces legales (vertical) */
+    .footer-inner {
+      display: flex;
+      flex-direction: column;
+      gap: 0rem;
+      align-items: center;
+      padding: 1.25rem 0;
+    }
+    .footer-legal {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column; /* <- vertical */
+      gap: 0.5rem;
+      align-items: center;
+    }
+    .footer-legal a {
+      color: #ECF0F1;
+      text-decoration: underline;
+      font-size: 0.95rem;
+    }
+    @media (min-width: 700px) {
+      .footer-inner {
+        /* mantener vertical también en pantallas grandes */
+        flex-direction: column;
+        justify-content: center;
+      }
+    }
+  </style>
+
+
+  <script src="script.js"></script>
+</body>
+
+</html>

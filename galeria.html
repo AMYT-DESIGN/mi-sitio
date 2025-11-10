@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Galería | Reformas Pisos Barcelona</title>
+  <link rel="stylesheet" href="style2.css">
+</head>
+<body>
+
+  <div class="wrapper">
+    <main>
+      <header>
+        <div class="container">
+          <a href="index.html" class="logo-link" aria-label="Ir a Inicio">
+            <!-- SVG responsive: usa viewBox y clase CSS -->
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 84" role="img" aria-labelledby="title desc"
+                 preserveAspectRatio="xMidYMid meet" class="logo-svg" style="margin-right: 0px;">
+              <title id="title">Reformas PRAT</title>
+              <desc id="desc">Logotipo con fondo negro y texto blanco</desc>
+
+              <rect x="0" y="0" width="500" height="84" fill="#000" rx="6" ry="6" />
+              <text x="50%" y="55%" fill="#ffffff" font-family="Verdana, Arial, sans-serif"
+                    font-size="36" font-weight="700" text-anchor="middle" dominant-baseline="middle">
+                Reformas PRAT
+              </text>
+            </svg>
+          </a>
+  
+          <!-- Botón hamburguesa para móvil -->
+          <button class="menu-toggle" id="menu-toggle" aria-label="Abrir menú">
+              ☰
+          </button>
+  
+          <nav>
+            <ul id="menu">
+              <li><a href="index.html">Inicio</a></li>
+              <li><a href="servicios.html">Servicios</a></li>
+              <li><a href="galeria.html" class="active">Galería</a></li>
+              <li><a href="contacto.html">Contacto</a></li>
+            </ul>
+          </nav>
+        </div>
+      </header>
+      <style>
+        /* Ajustes mobile para que el menú desplegable no cubra el botón */
+        @media (max-width: 768px) {
+          #menu {
+            display: none;               /* oculto por defecto */
+            top: 100%;                   /* justo debajo del header */
+            left: 0;
+            right: 0;
+            background: #2C3E50;
+            flex-direction: column;
+            gap: 0;
+            padding: 0.75rem 0;
+            z-index: 150;                /* por debajo del botón */
+          }
+
+          #menu.open {
+            display: flex;
+          }
+
+          .menu-toggle {
+            position: relative;
+            z-index: 200;                /* botón siempre encima del menú */
+          }
+
+          #menu li {
+            margin: 0.25rem 1rem;
+          }
+
+          #menu a {
+            display: block;
+            padding: 0.5rem 0;
+          }
+        }
+      </style>
+
+      <section class="section gallery">
+        <h2>Galería de Trabajos Realizados</h2>
+        <div class="gallery-grid">
+          <img src="imagesgaleria/lisa-anna-rc0IlR9Mzq4-unsplash.jpg" alt="Reforma de cocina">
+          <img src="imagesgaleria/chastity-cortijo-FJLoqqIsSHc-unsplash.jpg" alt="Reforma de baño">
+          <!-- <img src="" alt="Reforma integral"> -->
+          <img src="imagesgaleria/callum-hill-f1UwaROA2UQ-unsplash.jpg" alt="Pintura interior">
+          <img src="imagesgaleria/possessed-photography-NsC6wFTpowQ-unsplash.jpg" alt="Suelos laminados">
+          <!-- <img src="" alt="Reforma de salón"> -->
+        </div>
+      </section>
+      <!-- Ventana emergente (lightbox) -->
+      <div class="lightbox" id="lightbox">
+        <img src="" alt="Imagen ampliada" id="lightbox-img">
+      </div>
+    </main>
+    <footer>
+      <div class="container footer-inner" style="padding-bottom: 0px;padding-top: 0px;">
+        <p>© 2025 Reformas Pisos Barcelona - Todos los derechos reservados.</p>
+
+        <!-- enlaces legales en el footer -->
+        <ul class="footer-legal">
+          <li><a href="aviso-legal.html" rel="noopener">Aviso legal</a> -  <a href="politica-de-privacidad.html" rel="noopener">Política de privacidad</a></li>
+        </ul>
+      </div>
+    </footer>
+  </div>
+
+
+  <style>
+    html, body {
+      height: 100%;
+      margin: 0;
+    }
+
+    .wrapper {
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh; /* ocupa toda la altura del viewport */
+    }
+
+    main {
+      flex: 1; /* empuja el footer hacia abajo */
+    }
+
+    footer {
+      background-color: #222;
+      color: white;
+      text-align: center;
+      padding: 10px;
+    }
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      justify-items: center;
+      align-items: center;
+    }
+
+    .gallery-grid img {
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      object-fit: cover;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+    .gallery-grid img:hover {
+      transform: scale(1.05);
+    }
+    /* Lightbox */
+    .lightbox {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.8);
+      display: none;              /* oculto por defecto */
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+    }
+
+    .lightbox img {
+      max-width: 90%;
+      max-height: 90%;
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+      animation: fadeIn 0.3s ease;
+    }
+
+    @keyframes fadeIn {
+      from {opacity: 0; transform: scale(0.95);}
+      to {opacity: 1; transform: scale(1);}
+    }
+    /* Footer: enlaces legales (vertical) */
+    .footer-inner {
+      display: flex;
+      flex-direction: column;
+      gap: 0rem;
+      align-items: center;
+      padding: 1.25rem 0;
+    }
+    .footer-legal {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column; /* <- vertical */
+      gap: 0.5rem;
+      align-items: center;
+    }
+    .footer-legal a {
+      color: #ECF0F1;
+      text-decoration: underline;
+      font-size: 0.95rem;
+    }
+    @media (min-width: 700px) {
+      .footer-inner {
+        /* mantener vertical también en pantallas grandes */
+        flex-direction: column;
+        justify-content: center;
+      }
+    }
+  </style>
+  <script>
+    const images = document.querySelectorAll('.gallery-grid img');
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightbox-img');
+
+    images.forEach(img => {
+      img.addEventListener('click', () => {
+        lightbox.style.display = 'flex';
+        lightboxImg.src = img.src;
+      });
+    });
+
+    // Cerrar al hacer clic fuera o en la imagen
+    lightbox.addEventListener('click', () => {
+      lightbox.style.display = 'none';
+    });
+  </script>
+
+  <style>
+    /* ...existing styles... */
+
+    /* Ajustes mobile: menú como overlay fijo para que no desplace contenido */
+    @media (max-width: 768px) {
+      header, header .container {
+        overflow: visible; /* permitir overlay sin recorte */
+      }
+
+      #menu {
+        display: none;                 /* oculto por defecto */
+        position: fixed;               /* fuera del flujo: no desplaza contenido */
+        top: var(--header-height, 64px); /* set por JS para coincidir con header */
+        left: 0;
+        right: 0;
+        background: #2C3E50;
+        z-index: 9999;
+        flex-direction: column;
+        gap: 0;
+        padding: 0.75rem 0;
+        max-height: calc(100vh - var(--header-height, 64px));
+        overflow: auto;                /* scroll si es más alto que viewport */
+      }
+
+      #menu.open {
+        display: flex;
+      }
+
+      .menu-toggle {
+        position: relative;
+        z-index: 10001;                /* botón siempre encima del menú */
+      }
+
+      #menu li {
+        margin: 0.25rem 1rem;
+      }
+
+      #menu a {
+        display: block;
+        padding: 0.5rem 0;
+      }
+
+      /* opcional: cuando el menú esté abierto, evita scroll del body */
+      body.menu-open {
+        overflow: hidden;
+        touch-action: none;
+      }
+    }
+  </style>
+  <!-- <footer>
+    <p>© 2025 Reformas Pisos Barcelona - Todos los derechos reservados.</p>
+  </footer> -->
+
+  <script src="script.js"></script>
+</body>
+</html>

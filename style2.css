@@ -1,0 +1,476 @@
+/* ==========
+   ESTILOS GLOBALES
+========== */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  /* font-family: "Poppins", Arial, sans-serif; */
+  font-family: 'Segoe UI', sans-serif;
+  color: #2C3E50;
+  background-color: #ECF0F1;
+  line-height: 1.6;
+}
+
+/* ==========
+   ENCABEZADO Y MENÚ
+========== */
+
+header {
+  background: #2C3E50;
+  color: white;
+  padding: 1rem 0;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  transition: transform 0.22s ease, box-shadow 0.22s ease;
+  will-change: transform;
+}
+
+header .container {
+  width: 90%;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+header h1 {
+  font-size: 1.5rem;
+  letter-spacing: 1px;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* header h1::before {
+  content: "🏠";
+  font-size: 1.4rem;
+} */
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+}
+
+nav a {
+  color: #ECF0F1;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+  margin: 0 15px;
+}
+
+nav a:hover,
+nav a.active {
+  color: #F1C40F;
+  text-decoration: underline;
+}
+
+/* ==========
+   SECCIONES
+========== */
+
+.section {
+  width: 90%;
+  max-width: 1200px;
+  margin: 3rem auto;
+  /* text-align: center; */
+}
+
+/* ==========
+   HERO / PORTADA
+========== */
+
+.hero {
+  background: url('images/alex-tyson--UlVxxz2yn0-unsplash.jpg') center/cover no-repeat;
+  color: white;
+  text-align: center;
+  padding: 23rem 1rem;
+  position: relative;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(10, 34, 64, 0.5);
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+  max-width: 700px;
+  margin: auto;
+}
+
+.hero h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.btn {
+  display: inline-block;
+  background: #ffd700;
+  color: #0a2240;
+  padding: 0.75rem 1.5rem;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background 0.3s ease;
+}
+
+.btn:hover {
+  background: #ffec80;
+}
+
+/* ==========
+   SERVICIOS
+========== */
+
+.services {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.service-card {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 10px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.service-card:hover {
+  transform: translateY(-5px);
+}
+
+/* ==========
+   GALERÍA
+========== */
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.gallery-grid img {
+  width: 100%;
+  border-radius: 10px;
+  transition: transform 0.3s ease;
+}
+
+.gallery-grid img:hover {
+  transform: scale(1.05);
+}
+
+/* ==========
+   CONTACTO
+========== */
+
+.contact form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  max-width: 500px;
+  margin: 2rem auto;
+  text-align: left;
+}
+
+.contact input,
+.contact textarea {
+  padding: 0.8rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-family: inherit;
+  width: 100%;
+}
+
+.contact-info {
+  margin-top: 2rem;
+  font-size: 1rem;
+  color: #555;
+}
+
+/* ==========
+   FOOTER
+========== */
+
+footer {
+  background-color: #222;
+  color: white;
+  text-align: center;
+  padding: 10px;
+}
+
+/* Footer: enlaces legales */
+.footer-inner {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  align-items: center;
+  padding: 1.25rem 0;
+}
+.footer-legal {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 1rem;
+}
+.footer-legal a {
+  color: #ECF0F1;
+  text-decoration: underline;
+  font-size: 0.95rem;
+}
+@media (min-width: 700px) {
+  .footer-inner {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
+
+/* ==========
+   RESPONSIVE
+========== */
+
+@media (max-width: 768px) {
+  header .container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  nav ul {
+    flex-direction: column;
+    margin-top: 1rem;
+  }
+
+  .hero {
+    padding: 4rem 1rem;
+  }
+
+  .hero h2 {
+    font-size: 1.5rem;
+  }
+}
+
+/* ===== Menú general ===== */
+header {
+  /* background: #333; */
+  color: white;
+  padding: 1rem 0;
+}
+
+header .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+header h1 {
+  font-size: 1.5rem;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 1.2rem;
+  margin: 0;
+  padding: 0;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+nav a.active {
+  text-decoration: underline;
+}
+
+/* ===== Estilos para móviles ===== */
+.menu-toggle {
+  display: none;
+  font-size: 1.8rem;
+  background: none;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+/* En pantallas pequeñas, ocultar el menú por defecto */
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: block;
+  }
+
+  nav ul {
+    display: none;           /* oculto por defecto */
+    flex-direction: column;  /* vertical */
+    background: #444;
+    top: 60px;               /* debajo del header */
+    right: 0;
+    left: 0;
+    text-align: center;
+    padding: 1rem 0;
+  }
+
+  nav ul.show {
+    display: flex;           /* visible al activar */
+  }
+
+  nav li {
+    margin: 0.8rem 0;
+  }
+}
+
+header {
+  background: #2C3E50;
+  color: white;
+  padding: 1rem 0;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  transition: transform 0.22s ease, box-shadow 0.22s ease;
+  will-change: transform;
+}
+
+/* clase que oculta el header desplazándolo hacia arriba */
+.header-hidden {
+  transform: translateY(-100%);
+  pointer-events: none; /* evita clicks mientras está oculto */
+}
+
+/* make inline SVG responsive */
+.logo-svg {
+  width: 100%;
+  max-width: 480px; /* ajusta al máximo deseado */
+  height: auto;
+  display: block;   /* elimina espacio inferior por inline rendering */
+}
+
+/* header / logo layout */
+header .container {
+  display: flex;
+  align-items: center;
+  /* gap: 1rem; */
+  position: relative;
+}
+
+/* logo pequeño y a la izquierda en escritorio */
+.logo-svg {
+  width: 220px;       /* tamaño en escritorio: ajusta si quieres más pequeño */
+  max-width: 40%;
+  height: auto;
+  display: block;     /* elimina espacio en línea */
+  margin-right: auto; /* empuja el resto (botón / nav) a la derecha */
+}
+
+/* mantener el botón de menú accesible en la izquierda cuando la logo esté centrada */
+.menu-toggle {
+  z-index: 200;
+}
+
+/* versión móvil: logo centrado */
+@media (max-width: 768px) {
+  header .container {
+    justify-content: center; /* centra el contenido del header */
+  }
+
+  .logo-svg {
+    width: 70%;       /* ocupa más espacio en móvil pero mantén proporción */
+    max-width: 320px;
+    margin: 0;        /* quitar margin-right:auto para poder centrar */
+  }
+
+  /* recolocar el botón menú a la izquierda sin alterar el centrado del logo */
+  .menu-toggle {
+    position: absolute;
+    /* left: 0.8rem; */
+    top: 50%;
+    /* transform: translateY(-50%); */
+  }
+
+  /* el nav desplegable permanece normal debajo del header */
+  #menu {
+    top: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+
+  /* permitir que el header no recorte hijos posicionados fuera */
+  header, header .container {
+    overflow: visible;
+  }
+
+  /* menú móvil: fijado, ocupa ancho completo y puede hacer scroll si es alto */
+  #menu {
+    display: none;
+    top: 64px;                     /* ajusta según la altura real de tu header */
+    left: 0;
+    right: 0;
+    background: #2C3E50;
+    z-index: 9999;
+    flex-direction: column;
+    gap: 0;
+    padding: 0.75rem 0;
+    max-height: calc(100vh - 64px); /* para que no sobresalga del viewport */
+    overflow: auto;                /* permite hacer scroll si el menú es largo */
+  }
+
+  #menu.open {
+    display: flex;
+  }
+
+  /* botón siempre encima */
+  .menu-toggle {
+    position: relative;
+    z-index: 10001;
+  }
+}
+
+.logo-link {
+  display: inline-block;
+  line-height: 0; /* elimina espacio inferior */
+  text-decoration: none;
+}
+.logo-link:focus {
+  outline: 2px solid #000000;
+  outline-offset: 1px;
+}
+.logo-svg {
+  width: 220px; /* ajusta tamaño en escritorio */
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+/* en móvil centrarás el logo con las reglas que ya tienes */
+@media (max-width: 768px) {
+  .logo-link { display: block; margin: 0 auto; }
+}
+
+#politica ul {
+  margin-left: 0rem;  /* aumenta la separación general */
+  padding-left: 1.5rem; /* mueve los puntos hacia dentro */
+  list-style-position: outside; /* asegura que los puntos queden fuera del texto */
+}

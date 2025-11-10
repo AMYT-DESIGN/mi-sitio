@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contacto | Reformas Pisos Barcelona</title>
+  <link rel="stylesheet" href="style2.css" />
+</head>
+<body>
+  <div class="wrapper">
+    <main>
+      <header>
+        <div class="container">
+          <a href="index.html" class="logo-link" aria-label="Ir a Inicio">
+            <!-- SVG responsive: usa viewBox y clase CSS -->
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 84" role="img" aria-labelledby="title desc"
+                 preserveAspectRatio="xMidYMid meet" class="logo-svg" style="margin-right: 0px;">
+              <title id="title">Reformas PRAT</title>
+              <desc id="desc">Logotipo con fondo negro y texto blanco</desc>
+
+              <rect x="0" y="0" width="500" height="84" fill="#000" rx="6" ry="6" />
+              <text x="50%" y="55%" fill="#ffffff" font-family="Verdana, Arial, sans-serif"
+                    font-size="36" font-weight="700" text-anchor="middle" dominant-baseline="middle">
+                Reformas PRAT
+              </text>
+            </svg>
+          </a>
+    
+          <!-- Botón hamburguesa para móvil -->
+          <button class="menu-toggle" id="menu-toggle" aria-label="Abrir menú">
+            ☰
+          </button>
+    
+          <nav>
+            <ul id="menu">
+              <li><a href="index.html">Inicio</a></li>
+              <li><a href="servicios.html">Servicios</a></li>
+              <li><a href="galeria.html">Galería</a></li>
+              <li><a href="contacto.html" class="active">Contacto</a></li>
+            </ul>
+          </nav>
+        </div>
+      </header>
+      <style>
+        /* Ajustes mobile para que el menú desplegable no cubra el botón */
+        @media (max-width: 768px) {
+          #menu {
+            display: none;
+            /* oculto por defecto */
+            top: 100%;
+            /* justo debajo del header */
+            left: 0;
+            right: 0;
+            background: #2C3E50;
+            flex-direction: column;
+            gap: 0;
+            padding: 0.75rem 0;
+            z-index: 150;
+            /* por debajo del botón */
+          }
+    
+          #menu.open {
+            display: flex;
+          }
+    
+          .menu-toggle {
+            position: relative;
+            z-index: 200;
+            /* botón siempre encima del menú */
+          }
+    
+          #menu li {
+            margin: 0.25rem 1rem;
+          }
+    
+          #menu a {
+            display: block;
+            padding: 0.5rem 0;
+          }
+        }
+      </style>
+      <div class="contact-container">
+        <div class="contact-form">
+          <h2>Contacto</h2>
+          <p>Solicita tu presupuesto sin compromiso</p>
+      
+          <form>
+            <label for="nombre">Nombre</label>
+            <input type="text" id="nombre" name="nombre" placeholder="Tu nombre" required="">
+      
+            <label for="email">Correo electrónico</label>
+            <input type="email" id="email" name="email" placeholder="tu@email.com" required="">
+      
+            <label for="mensaje">Mensaje</label>
+            <textarea id="mensaje" name="mensaje" placeholder="Escribe tu mensaje..." required=""></textarea>
+      
+            <div class="privacy">
+              <label for="privacidad" class="checkbox-label">
+                <input type="checkbox" name="privacidad" id="privacidad" style="width: 13px;" required="">
+                He leído y acepto la
+                <a href="politica-de-privacidad.html" rel="noopener">Política de privacidad</a>.
+              </label>
+            </div>
+      
+      
+            <button type="submit">Enviar</button>
+          </form>
+        </div>
+      </div>
+      
+      <style>
+        .contact-section {
+          /* background-color: #f7c79c; tono beige similar al tuyo */
+          padding: 60px 20px;
+          font-family: "Poppins", sans-serif;
+        }
+      
+        /* .contact-container {
+          max-width: 1200px;
+          margin: 0 auto;
+          background: #fff;
+          border-radius: 20px;
+          box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          overflow: hidden;
+        } */
+      
+        .contact-form,
+        .contact-info {
+          padding: 40px;
+        }
+      
+        .contact-form h2 {
+          font-size: 1.8rem;
+          color: #333;
+          margin-bottom: 10px;
+        }
+      
+        .contact-form p {
+          color: #666;
+          margin-bottom: 25px;
+        }
+      
+        .contact-form label {
+          font-weight: 500;
+          margin-bottom: 8px;
+          display: block;
+          color: #444;
+        }
+      
+        .contact-form input,
+        .contact-form textarea {
+          width: 100%;
+          padding: 12px 15px;
+          border: 1px solid #ccc;
+          border-radius: 10px;
+          font-size: 1rem;
+          margin-bottom: 20px;
+          transition: all 0.2s ease;
+        }
+      
+        .contact-form input:focus,
+        .contact-form textarea:focus {
+          outline: none;
+          border-color: #ff8a3d;
+          box-shadow: 0 0 5px rgba(255, 138, 61, 0.4);
+        }
+      
+        .contact-form textarea {
+          height: 120px;
+          resize: none;
+        }
+      
+        .privacy {
+          font-size: 0.9rem;
+          color: #555;
+          margin-bottom: 20px;
+        }
+      
+        .privacy a {
+          color: #ff8a3d;
+          text-decoration: none;
+        }
+      
+        .privacy a:hover {
+          text-decoration: underline;
+        }
+      
+        button {
+          background-color: #ff8a3d;
+          color: white;
+          font-size: 1rem;
+          padding: 12px 30px;
+          border: none;
+          border-radius: 10px;
+          cursor: pointer;
+          transition: background-color 0.2s ease;
+        }
+      
+        button:hover {
+          background-color: #e97728;
+        }
+      
+        .contact-info h3 {
+          margin-top: 0;
+          color: #333;
+        }
+      
+        .contact-info p {
+          color: #555;
+          margin-bottom: 15px;
+        }
+      
+        .contact-info a {
+          color: #ff8a3d;
+          text-decoration: none;
+        }
+      
+        .contact-info a:hover {
+          text-decoration: underline;
+        }
+      
+        .map iframe {
+          width: 100%;
+          height: 250px;
+          border: none;
+          border-radius: 10px;
+          margin-top: 20px;
+        }
+      
+        /* 📱 Responsivo */
+        @media (max-width: 900px) {
+          .contact-container {
+            grid-template-columns: 1fr;
+          }
+      
+          .map iframe {
+            height: 200px;
+          }
+        }
+      
+        .contact-container {
+          display: flex;
+          flex-wrap: wrap;
+          /* ✅ Permite que se apilen en móvil */
+          justify-content: center;
+          align-items: flex-start;
+          gap: 2rem;
+          /* espacio entre columnas */
+          width: 100%;
+          /* ocupa todo el ancho disponible */
+          max-width: 1200px;
+          /* límite en pantallas grandes */
+          margin: 0 auto;
+          /* centrado */
+          padding: 2rem;
+          box-sizing: border-box;
+        }
+      
+        .contact-form {
+          flex: 1 1 500px;
+          /* se adapta pero tiene ancho mínimo */
+          max-width: 600px;
+          /* ancho máximo en pantallas grandes */
+          width: 100%;
+          background: #fff;
+          border-radius: 12px;
+          padding: 2rem;
+          box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+      
+        /* 📱 Responsive para pantallas pequeñas */
+        @media (max-width: 768px) {
+          .contact-container {
+            flex-direction: column;
+            padding: 1rem;
+          }
+      
+          .contact-form {
+            max-width: 100%;
+            padding: 1.5rem;
+          }
+        }
+      </style>
+
+    </main>
+    <footer>
+      <div class="container footer-inner" style="padding-bottom: 0px;padding-top: 0px;">
+        <p>© 2025 Reformas Pisos Barcelona - Todos los derechos reservados.</p>
+
+        <!-- enlaces legales en el footer -->
+        <ul class="footer-legal">
+          <li><a href="aviso-legal.html" rel="noopener">Aviso legal</a> -  <a href="politica-de-privacidad.html" rel="noopener">Política de privacidad</a></li>
+        </ul>
+      </div>
+    </footer>
+  </div>
+
+  <style>
+    /* Pequeños estilos para ocupar toda la altura y mantener footer abajo */
+    html, body { height: 100%; margin: 0; }
+    .wrapper { display: flex; flex-direction: column; min-height: 100vh; }
+    main { flex: 1; }
+    /* Footer: enlaces legales (vertical) */
+    .footer-inner {
+      display: flex;
+      flex-direction: column;
+      gap: 0rem;
+      align-items: center;
+      padding: 1.25rem 0;
+    }
+    .footer-legal {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column; /* <- vertical */
+      gap: 0.5rem;
+      align-items: center;
+    }
+    .footer-legal a {
+      color: #ECF0F1;
+      text-decoration: underline;
+      font-size: 0.95rem;
+    }
+    @media (min-width: 700px) {
+      .footer-inner {
+        /* mantener vertical también en pantallas grandes */
+        flex-direction: column;
+        justify-content: center;
+      }
+    }
+  </style>
+  <style>
+    /* ...existing styles... */
+
+    /* Ajustes mobile: menú como overlay fijo para que no desplace contenido */
+    @media (max-width: 768px) {
+      header, header .container {
+        overflow: visible; /* permitir overlay sin recorte */
+      }
+
+      #menu {
+        display: none;                 /* oculto por defecto */
+        position: fixed;               /* fuera del flujo: no desplaza contenido */
+        top: var(--header-height, 64px); /* set por JS para coincidir con header */
+        left: 0;
+        right: 0;
+        background: #2C3E50;
+        z-index: 9999;
+        flex-direction: column;
+        gap: 0;
+        padding: 0.75rem 0;
+        max-height: calc(100vh - var(--header-height, 64px));
+        overflow: auto;                /* scroll si es más alto que viewport */
+      }
+
+      #menu.open {
+        display: flex;
+      }
+
+      .menu-toggle {
+        position: relative;
+        z-index: 10001;                /* botón siempre encima del menú */
+      }
+
+      #menu li {
+        margin: 0.25rem 1rem;
+      }
+
+      #menu a {
+        display: block;
+        padding: 0.5rem 0;
+      }
+
+      /* opcional: cuando el menú esté abierto, evita scroll del body */
+      body.menu-open {
+        overflow: hidden;
+        touch-action: none;
+      }
+    }
+  </style>
+  <script src="script.js"></script>
+</body>
+</html>
